@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>该页面是测试使用原生js发送ajax的post请求</h1>
+<button id="btn">点击使用原生js发送ajax的post请求</button>
+<div id="demo"></div>
+<script>
+    let btn = document.getElementById('btn');
+    btn.onclick = function () {
+        let xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200){
+                console.log(xhr.response)
+                let demo = document.getElementById('demo');
+                demo.innerText = xhr.response
+            }
+        }
+        xhr.open('post','http://localhost:3000/ajax_post')
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        xhr.send('name=kris&age=18')
+    }
+</script>
+</body>
+</html>

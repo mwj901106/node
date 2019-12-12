@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="./public/js/jquery-1.12.4.js"></script>
+<button id="btn">点击使用哪个cors解决跨域问题</button>
+<script type="text/javascript">
+    let btn = $('#btn')
+    btn.click(function () {
+        $.ajax({
+            url:'http://localhost:3000/test',
+            method:'get',
+            data:{name:'kris',age:29},
+            success:function (result) {
+                console.log(result)
+            },
+            error:function (err) {
+                console.log(err)
+            }
+        })
+    })
+</script>
+</body>
+</html>
